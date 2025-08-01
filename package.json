@@ -1,0 +1,30 @@
+{
+	"name": "com.madbox.public.tiny-rest-client",
+	"version": "1.7.1",
+	"displayName": "[Public] Tiny Rest Client",
+	"description": "C# client to send web requests, even from background threads",
+	"unity": "2020.3",
+	"keywords": [
+		"api",
+		"http",
+		"public",
+		"request",
+		"web",
+		"rest"
+	],
+	"author": {
+		"name": "Public"
+	},
+	"contributors": [
+		{
+			"name": "Jérôme GIACOMINI"
+		}
+	],
+	"publishConfig": {},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:jgiacomini/Tiny.RestClient.git"
+	},
+	"documentationUrl": "https://github.com/jgiacomini/Tiny.RestClient",
+	"dependencies": {}
+}
