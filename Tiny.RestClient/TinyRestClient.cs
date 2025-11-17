@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -18,7 +18,7 @@ namespace Tiny.RestClient
     /// <summary>
     /// Class <see cref="TinyRestClient"/>.
     /// </summary>
-    public class TinyRestClient
+    public class TinyRestClient : ITinyRestClient
     {
         #region Fields
         private const int BufferSize = 81920;
