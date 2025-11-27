@@ -1,5 +1,5 @@
 {
-    "name": "Tiny.RestClient.Tests.Mocks",
+    "name": "Public.Tiny.RestClient.Tests.Mocks",
     "rootNamespace": "Tiny.RestClient.Tests.Mocks",
     "references": [
         "GUID:4e124724154641e8b999c1745ecb8851"
