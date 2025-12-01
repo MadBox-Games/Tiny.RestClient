@@ -12,21 +12,23 @@ namespace Tiny.RestClient.Tests.Mocks
 		/// Creates a mock that returns a successful HTTP 200 response with the specified JSON content.
 		/// </summary>
 		/// <param name="jsonResponse">The JSON response content to return</param>
-		public static Mock<ITinyRestClient> ReturningSuccess(string jsonResponse)
+		public static Mock<ITinyRestClient> ReturningSuccess(string jsonResponse = "")
 		{
-			Mock<ITinyRestClient> mockClient = new Mock<ITinyRestClient>();
-			Mock<IParameterRequest> mockRequest = new Mock<IParameterRequest>();
+			Mock<ITinyRestClient> mockClient  = new Mock<ITinyRestClient>();
+			Mock<IRequest>        mockRequest = new Mock<IRequest>();
 
 			HttpResponseMessage successResponse = new HttpResponseMessage(HttpStatusCode.OK);
 			successResponse.Content = new StringContent(jsonResponse);
 
 			mockRequest.Setup(r => r.AddQueryParameter(It.IsAny<string>(), It.IsAny<string>()))
 				.Returns(mockRequest.Object);
-			mockRequest.Setup(r => r.ExecuteAsHttpResponseMessageAsync(CancellationToken.None))
+			mockRequest.Setup(r => r.AddFormParameter(It.IsAny<string>(), It.IsAny<string>()))
+				.Returns(mockRequest.Object);
+			mockRequest.Setup(r => r.ExecuteAsHttpResponseMessageAsync(It.IsAny<CancellationToken>()))
 				.ReturnsAsync(successResponse);
 
-			mockClient.Setup(c => c.PostRequest(null))
-				.Returns(mockRequest.Object as IRequest);
+			mockClient.Setup(c => c.PostRequest(It.IsAny<string>()))
+				.Returns(mockRequest.Object);
 
 			return mockClient;
 		}
@@ -46,10 +48,10 @@ namespace Tiny.RestClient.Tests.Mocks
 
 			mockRequest.Setup(r => r.AddFormParameter(It.IsAny<string>(), It.IsAny<string>()))
 				.Returns(mockRequest.Object);
-			mockRequest.Setup(r => r.ExecuteAsHttpResponseMessageAsync(CancellationToken.None))
+			mockRequest.Setup(r => r.ExecuteAsHttpResponseMessageAsync(It.IsAny<CancellationToken>()))
 				.ReturnsAsync(errorResponse);
 
-			mockClient.Setup(c => c.PostRequest(null))
+			mockClient.Setup(c => c.PostRequest(It.IsAny<string>()))
 				.Returns(mockRequest.Object);
 
 			return mockClient;
@@ -63,13 +65,13 @@ namespace Tiny.RestClient.Tests.Mocks
 		{
 			Mock<ITinyRestClient> mockClient  = new Mock<ITinyRestClient>();
 			Mock<IRequest>        mockRequest = new Mock<IRequest>();
-			
+
 			mockRequest.Setup(r => r.AddFormParameter(It.IsAny<string>(), It.IsAny<string>()))
 				.Returns(mockRequest.Object);
-			mockRequest.Setup(r => r.ExecuteAsHttpResponseMessageAsync(CancellationToken.None))
+			mockRequest.Setup(r => r.ExecuteAsHttpResponseMessageAsync(It.IsAny<CancellationToken>()))
 				.ThrowsAsync(exception);
 
-			mockClient.Setup(c => c.PostRequest(null))
+			mockClient.Setup(c => c.PostRequest(It.IsAny<string>()))
 				.Returns(mockRequest.Object);
 
 			return mockClient;
