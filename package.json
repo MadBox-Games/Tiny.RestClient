@@ -1,6 +1,6 @@
 {
 	"name": "com.madbox.public.tiny-rest-client",
-	"version": "1.7.2-preview-unity.1",
+	"version": "1.0.0-preview-feature-unit-tests.1",
 	"displayName": "[Public] Tiny Rest Client",
 	"description": "C# client to send web requests, even from background threads",
 	"unity": "2020.3",
