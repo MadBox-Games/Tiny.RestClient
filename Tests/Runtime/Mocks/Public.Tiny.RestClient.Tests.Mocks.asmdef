@@ -1,0 +1,20 @@
+{
+    "name": "Public.Tiny.RestClient.Tests.Mocks",
+    "rootNamespace": "Tiny.RestClient.Tests.Mocks",
+    "references": [
+        "GUID:4e124724154641e8b999c1745ecb8851"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Moq.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
