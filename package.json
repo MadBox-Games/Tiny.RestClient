@@ -5,6 +5,7 @@
 	"description": "C# client to send web requests, even from background threads",
 	"unity": "2020.3",
 	"keywords": [
+		"central-game-tech",
 		"api",
 		"http",
 		"public",
